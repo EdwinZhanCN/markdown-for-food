@@ -1,0 +1,188 @@
+---
+@meta {
+  title: "经典川味酸菜鱼"
+  author: "川菜研究院"
+  version: 2.1
+  cuisine: ["川菜", "水产"]
+  serves: 4
+  difficulty: ★★★☆☆
+  origin: "四川自贡·1987"
+}
+---
+
+![酸菜鱼成品图](https://example.com/suan_cai_yu.jpg)
+*传统四川泡菜与鲜活河鱼的完美结合*
+
+@ingredients {
+  # 主料
+  黑鱼: {
+    amount: 800g ±5%
+    prep: "去骨切片（3mm厚度）"
+    quality: "鲜活现杀"
+    substitutes: [
+      "鲈鱼: { adjustment: "蒸煮时间+5min" }"
+    ]
+    nutrition: {
+      protein: 18.2g/100g
+      fat: 3.5g
+    }
+  }
+
+  # 调料
+  老坛酸菜: {
+    amount: 300g
+    fermentation: "180天自然发酵"
+    brand: "自贡陈记"
+    storage: "阴凉避光"
+  }
+
+  郫县豆瓣酱: {
+    amount: 50g
+    grade: "特级红油"
+    warning: "含大豆制品"
+  }
+}
+
+@equipment {
+  required: [
+    "铸铁炒锅: { diameter: 32cm }",
+    "食品温度计: { precision: ±1°C }"
+  ]
+  optional: [
+    "计时器",
+    "厨房秤: { precision: 0.1g }"
+  ]
+}
+
+@procedure {
+  - 准备阶段: {
+      steps: [
+        "片鱼: {
+          technique: "蝴蝶刀法",
+          tool: "主厨刀",
+          tip: "45度入刀保持鱼片完整"
+        }",
+        "腌制: {
+          time: "15min @4°C",
+          mixture: [
+            "料酒 15ml",
+            "淀粉 10g",
+            "蛋清 1个"
+          ],
+          effect: "锁水增嫩"
+        }"
+      ]
+  }
+
+  - 关键操作 @critical: {
+      name: "炒制底料",
+      temp: {
+        ideal: 180°C,
+        range: [170°C, 190°C],
+        monitor: true
+      },
+      visualCues: [
+        "红油透亮",
+        "酸菜边缘微卷"
+      ],
+      failureConditions: [
+        "temp < 160°C → 腥味残留",
+        "time > 3min → 风味物质流失"
+      ]
+  }
+
+  - 烹饪流程: {
+      timeline: [
+        { action: "热油", duration: "2min", temp: "200°C" },
+        {
+          action: "下鱼骨",
+          technique: "滑锅",
+          effect: "形成美拉德反应"
+        },
+        {
+          action: "注高汤",
+          volume: "1.5L",
+          tempDrop: "→160°C"
+        }
+      ],
+      controls: [
+        "全程中火",
+        "禁止翻动频率>2次/min"
+      ]
+  }
+}
+
+@allergens {
+  contains: ["鱼类", "大豆", "麸质"],
+  alternatives: [
+    "大豆 → 椰子酱油",
+    "麸质 → 玉米淀粉"
+  ]
+}
+
+@conversion {
+  baseServing: 4,
+  algorithm: {
+    type: "linear",
+    exceptions: [
+      "郫县豆瓣酱: 非线性增长（使用0.8倍系数）",
+      "腌制时间: sqrt(n)倍"
+    ]
+  }
+}
+
+@nutrition {
+  perServing: {
+    calories: 420kcal,
+    macro: {
+      protein: 38g,
+      carbs: 12g,
+      fat: 22g
+    },
+    micro: {
+      sodium: 890mg,
+      vitaminC: 15mg
+    }
+  },
+  dailyValue: {
+    calcium: 15%,
+    iron: 25%
+  }
+}
+
+@culture {
+  history: """
+  源自四川自贡盐工菜系，最早记录于1987年《川菜志》。
+  结合了：
+  - 井盐文化
+  - 泡菜传统
+  - 江河渔获
+  """,
+  signature: {
+    flavorProfile: ["鲜", "辣", "酸"],
+    texture: ["滑", "嫩", "脆"]
+  }
+}
+
+```markdown
+## 传统技巧
+1. **鱼片处理**：采用"三洗三漂"法去除血水
+2. **火候口诀**："大火攻，小火养，收汁用中火"
+3. **调味哲学**：<酸不过头，辣不盖鲜>
+```
+
+@qa {
+  commonIssues: [
+    {
+      question: "鱼片易碎怎么办？",
+      solution: [
+        "控制油温在170-180°C区间",
+        "腌制时加入0.5%食用碱"
+      ]
+    },
+    {
+      question: "汤色浑浊如何改善？",
+      solution: "改用鱼骨预煎法"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+\n
+@ingredients {\n
+  面粉: {\n
+    amount: "200g ±5%"\n
+    substitutes: ["全麦面粉"]\n
+  }\n
+}\n
