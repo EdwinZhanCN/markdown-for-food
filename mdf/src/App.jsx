@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await fetch('/public/recipes/番茄炒蛋.md');
+        const response = await fetch('/recipes/番茄炒蛋.md');
         if (!response.ok) throw new Error('文件加载失败');
         const text = await response.text();
         setMarkdownContent(text);
