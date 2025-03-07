@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@theme {
+    --font-ingredient: "Verdana", "sans-serif";
+    --color-recipe-primary: theme(colors.amber.600);
+    --color-recipe-secondary: theme(colors.amber.100);
+}
+
+@layer base {
+    
+    body {
+        @apply bg-amber-50/30 m-10;
+    }
+}
+
+@layer components {
+    .ingredients {
+        @apply 
+        list-none p-4 
+        bg-amber-50/50 rounded-xl 
+        border border-amber-100 
+        divide-y divide-amber-100
+        my-6 mx-0
+    }
+
+    .ingredient-item {
+        @apply font-ingredient
+        flex items-center p-4 my-2 bg-white rounded-lg shadow-sm border border-gray-100
+        hover:bg-amber-50 hover:border-amber-200 hover:shadow transition-all duration-200
+        cursor-pointer
+        before:mr-4 before:text-xl before:opacity-90
+        after:content-[attr(data-quantity)_attr(data-unit)]
+        after:ml-auto after:text-gray-600 after:font-medium
+        after:bg-amber-50 after:border after:border-amber-100 after:px-3 after:py-1 after:rounded-full
+        after:text-sm after:min-w-16 after:text-center
+    }
+    
+    .recipe-content {
+        @apply max-w-none
+    }
+    
+    .recipe-content h1, .recipe-content h2, .recipe-content h3, .recipe-content h4, .recipe-content h5, .recipe-content h6 {
+        @apply text-amber-800
+    }
+    
+    .recipe-content p {
+        @apply text-gray-700
+    }
+    
+    .recipe-content li {
+        @apply text-gray-700
+    }
+    
+    .cooking-timeline .step-item {
+        @apply relative pl-6 border-l-4 border-amber-200 ml-6
+    }
+    
+    /* 板块标题样式 */
+    .recipe-ingredients-heading {
+        @apply flex items-center text-amber-800
+        before:content-["🧂"] before:mr-3 before:text-2xl
+    }
+    
+    .recipe-steps-heading {
+        @apply flex items-center text-emerald-800
+        before:content-["👨‍🍳"] before:mr-3 before:text-2xl
+    }
+    
+    .recipe-tips-heading {
+        @apply flex items-center text-blue-800
+        before:content-["💡"] before:mr-3 before:text-2xl
+    }
+    
+    .recipe-nutrition-heading {
+        @apply flex items-center text-purple-800
+        before:content-["📊"] before:mr-3 before:text-2xl
+    }
+    
+    .recipe-variations-heading {
+        @apply flex items-center text-rose-800
+        before:content-["🔄"] before:mr-3 before:text-2xl
+    }
+    
+    /* 步骤列表样式 */
+    .recipe-steps-list {
+        @apply list-none space-y-4 my-6 mx-0 pl-0;
+        counter-reset: steps;
+    }
+    
+    .recipe-steps-list li {
+        @apply relative pl-12 pb-6 border-l-2 border-emerald-200;
+    }
+    
+    
+    
+    /* 技巧列表样式 */
+    .recipe-tips-list {
+        @apply list-none space-y-3 my-4 mx-0
+    }
+    
+    .recipe-tips-list li {
+        @apply bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400
+        before:content-["✓"] before:mr-2 before:text-blue-600 before:font-bold
+    }
+    
+    /* 变化列表样式 */
+    .recipe-variations-list {
+        @apply list-none grid grid-cols-1 md:grid-cols-2 gap-3 my-4
+    }
+    
+    .recipe-variations-list li {
+        @apply bg-rose-50 p-3 rounded-lg border border-rose-200
+        before:content-["•"] before:mr-2 before:text-rose-600 before:font-bold
+    }
+    
+    /* 营养数据列表样式 */
+    .recipe-nutrition-list {
+        @apply list-none space-y-2 my-4 mx-0
+    }
+    
+    .recipe-nutrition-list li {
+        @apply flex items-center bg-purple-50 p-2 rounded-lg border-l-4 border-purple-300
+        before:content-["📊"] before:mr-2 before:text-purple-600
+    }
+    
+    /* 营养数据项样式 */
+    .nutrition-item {
+        @apply bg-purple-50 p-2 rounded-lg border-l-4 border-purple-300
+        flex items-center text-purple-800 font-medium
+    }
+    
+    /* 营养数据项前缀图标 */
+    .nutrition-item::before {
+        content: "📊";
+        @apply mr-2 text-purple-600
+    }
+    
+    /* 步骤子标题样式 */
+    .recipe-steps-subheading {
+        @apply flex items-center text-emerald-700 mt-6 mb-3
+        before:content-["🔍"] before:mr-3 before:text-xl
+    }
+    
+    /* 有序列表样式 */
+    ol {
+        @apply list-decimal pl-8 space-y-3 my-4
+    }
+    
+    /* 步骤中的有序列表 */
+    .recipe-content ol li {
+        @apply pl-2 pb-4
+    }
+    
+    /* 步骤中的列表项 */
+    .step-item {
+        @apply relative mb-4
+    }
+}
